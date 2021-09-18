@@ -72,8 +72,9 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             </dependency>
             <dependency>
                 <groupId>com.oracle.database.jdbc</groupId>
-                <artifactId>ojdbc10</artifactId>
-                <version>12.2.0.1</version>
+                <artifactId>ojdbc8</artifactId>
+                <version>11.2.0.2.0</version>
+                <scope>compile</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
