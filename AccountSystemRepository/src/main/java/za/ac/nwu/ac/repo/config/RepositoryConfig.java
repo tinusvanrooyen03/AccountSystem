@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 @EnableTransactionManagement
 @EnableJpaRepositories("za.ac.nwu.domain.persistence")
 @EntityScan("za.ac.nwu.domain.persistence")
-@PropertySource(value = "classpath:application-db.properties")
+@PropertySource(value ="classpath:application-db.properties")
 
 public class RepositoryConfig {
 
