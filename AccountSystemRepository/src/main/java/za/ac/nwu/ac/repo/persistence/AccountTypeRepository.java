@@ -8,3 +8,5 @@ import java.lang.reflect.Member;
 @Repository
 public interface AccountTypeRepository extends JpaRepository<MEMBER, Long> {
 }
+
+
