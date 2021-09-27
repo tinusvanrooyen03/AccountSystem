@@ -3,6 +3,7 @@ package za.ac.nwu.ac.domain.persistence;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "MEMBER", schema = "ASYS")
@@ -19,6 +20,8 @@ public class Member implements Serializable{
     private String FIRSTNAME;
     private String LASTNAME;
     private long totalMiles;
+
+    private Set<Transaction> transactions;
 
     public Member(long memberID, String FIRSTNAME, String LASTNAME, long totalMiles) {
         this.memberID = memberID;
@@ -65,6 +68,10 @@ public class Member implements Serializable{
         this.totalMiles = totalMiles;
     }
 
+    @OneToMany(targetEntity = Transaction.class, fetch = FetchType.LAZY, mappedBy = "MemberID", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    public Set<Transaction> getTransactions(){
+        return transactions;
+    }
 
     @Override
     public boolean equals(Object o) {

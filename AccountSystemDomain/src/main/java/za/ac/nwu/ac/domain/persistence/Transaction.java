@@ -15,7 +15,7 @@ public class Transaction implements Serializable {
     private long TransactionID;
 
     @Column(name = "MEMBERID")
-    private long MemberID;
+    private Member MemberID;
 
     @Column(name = "MILESADDED")
     private int MilesAdded;
@@ -26,7 +26,7 @@ public class Transaction implements Serializable {
     @Column(name = "DATEOF")
     private int DateOf;
 
-    public Transaction(long transactionID, long memberID, int milesAdded, int milesSubtracted, int dateOf) {
+    public Transaction(long transactionID, Member memberID, int milesAdded, int milesSubtracted, int dateOf) {
         TransactionID = transactionID;
         MemberID = memberID;
         MilesAdded = milesAdded;
@@ -45,12 +45,13 @@ public class Transaction implements Serializable {
     public void setTransactionID(long transactionID) {
         TransactionID = transactionID;
     }
-
-    public long getMemberID() {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MEMBERID")
+    public Member getMemberID() {
         return MemberID;
     }
 
-    public void setMemberID(long memberID) {
+    public void setMemberID(Member memberID) {
         MemberID = memberID;
     }
 
