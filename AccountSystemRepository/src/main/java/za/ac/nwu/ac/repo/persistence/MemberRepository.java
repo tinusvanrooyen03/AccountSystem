@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import za.ac.nwu.ac.domain.persistence.Member;
 
 @Repository
-public interface MemberRepository extends JpaRepository<Member, Long> {
+public interface  MemberRepository extends JpaRepository<Member, Long> {
 }
 
 

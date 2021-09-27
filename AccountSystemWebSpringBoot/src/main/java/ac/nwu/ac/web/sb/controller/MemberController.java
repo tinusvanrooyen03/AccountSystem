@@ -14,7 +14,7 @@ import za.ac.nwu.ac.domain.service.GeneralResponse;
 
 @RestController
 @RequestMapping("Member")
-public class MemberController {
+public class  MemberController {
 
     @GetMapping("/all")
     @ApiOperation(value = "Gets all the configured types. ", notes = "Returns a list of account types")

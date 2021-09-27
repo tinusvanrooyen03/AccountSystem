@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("za.ac.nwu.domain.persistence")
+@EnableJpaRepositories("za.ac.nwu.repo.persistence")
 @EntityScan("za.ac.nwu.domain.persistence")
 @PropertySource(value ="classpath:application-db.properties")
 
