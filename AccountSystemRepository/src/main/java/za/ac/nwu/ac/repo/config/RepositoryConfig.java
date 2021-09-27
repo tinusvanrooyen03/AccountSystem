@@ -6,7 +6,6 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.persistence.Entity;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories("za.ac.nwu.domain.persistence")
