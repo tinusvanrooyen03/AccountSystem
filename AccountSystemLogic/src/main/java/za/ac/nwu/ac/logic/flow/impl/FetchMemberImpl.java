@@ -12,7 +12,7 @@ public class FetchMemberImpl implements FetchMemberFlow {
     @Override
     public List<MemberDto> getAllMembers() {
         List<MemberDto> memberDtos = new ArrayList<>();
-        memberDtos.add(new MemberDto("Firstname", "Lastname", 0));
-        return null;
+        memberDtos.add(new MemberDto("Jan", "Blom", 20));
+        return memberDtos;
     }
 }

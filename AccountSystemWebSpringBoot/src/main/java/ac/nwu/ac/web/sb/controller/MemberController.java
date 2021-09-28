@@ -28,9 +28,9 @@ public class  MemberController {
     }
 
     @GetMapping("/all")
-    @ApiOperation(value = "Gets all the configured types. ", notes = "Returns a list of account types")
+    @ApiOperation(value = "Gets all the configured types. ", notes = "Returns a list of member types")
     @ApiResponses(value= {
-            @ApiResponse(code = 200, message = "Account types returned", response = GeneralResponse.class),
+            @ApiResponse(code = 200, message = "Member types returned", response = GeneralResponse.class),
             @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
             @ApiResponse(code = 404, message = "Not Found", response = GeneralResponse.class),
             @ApiResponse(code = 500, message = "Internal server error", response = GeneralResponse.class)})
