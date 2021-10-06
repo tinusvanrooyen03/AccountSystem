@@ -39,4 +39,15 @@ public class MemberTranslatorImpl implements MemberTranslator{
 
     }
 
+    @Override
+    public MemberDto create(MemberDto memberDto) {
+
+        try{
+            Member member = memberRepository.save(memberDto.getMember());
+            return new MemberDto(member);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to save to db");
+        }
+    }
+
 }

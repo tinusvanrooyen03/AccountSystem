@@ -1,9 +1,14 @@
 package za.ac.nwu.ac.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import za.ac.nwu.ac.domain.persistence.Member;
 
 import java.io.Serializable;
 import java.util.Objects;
+
+@ApiModel(value = "Member", description = "A Dto which describes the member")
 
 public class MemberDto implements Serializable {
 
@@ -28,6 +33,15 @@ public class MemberDto implements Serializable {
         member.setTotalMiles(member.getTotalMiles());
     }
 
+    @ApiModelProperty(position = 1,
+        value = "Member First Name",
+        name = "First Name",
+        notes = "Identifies the Member's Name",
+        dataType = "java.lang.String",
+        example = "Johan",
+        required = true)
+
+
     public String getFIRSTNAME() {
         return FIRSTNAME;
     }
@@ -36,6 +50,13 @@ public class MemberDto implements Serializable {
         this.FIRSTNAME = FIRSTNAME;
     }
 
+    @ApiModelProperty(position = 2,
+            value = "Member Last Name",
+            name = "Last Name",
+            notes = "Identifies the Member's Last Name",
+            dataType = "java.lang.String",
+            example = "Lategan",
+            required = true)
     public String getLASTNAME() {
         return LASTNAME;
     }
@@ -44,6 +65,13 @@ public class MemberDto implements Serializable {
         this.LASTNAME = LASTNAME;
     }
 
+    @ApiModelProperty(position = 3,
+            value = "Member Total Miles",
+            name = "Total Miles",
+            notes = "Identifies the Member's Miles",
+            dataType = "java.lang.Int",
+            example = "10",
+            required = true)
     public long getTotalMiles() {
         return totalMiles;
     }
@@ -60,8 +88,22 @@ public class MemberDto implements Serializable {
         return totalMiles == memberDto.totalMiles && Objects.equals(FIRSTNAME, memberDto.FIRSTNAME) && Objects.equals(LASTNAME, memberDto.LASTNAME);
     }
 
+    @JsonIgnore
+    public Member getMember(){
+        return new Member(getFIRSTNAME(), getLASTNAME(), getTotalMiles());
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(FIRSTNAME, LASTNAME, totalMiles);
+    }
+
+    @Override
+    public String toString() {
+        return "MemberDto{" +
+                "FIRSTNAME='" + FIRSTNAME + '\'' +
+                ", LASTNAME='" + LASTNAME + '\'' +
+                ", totalMiles=" + totalMiles +
+                '}';
     }
 }

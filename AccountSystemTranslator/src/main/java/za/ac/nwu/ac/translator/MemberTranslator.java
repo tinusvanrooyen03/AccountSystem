@@ -7,4 +7,6 @@ import za.ac.nwu.ac.repo.persistence.MemberRepository;
 public interface MemberTranslator {
 
     List<MemberDto> getAllMembers();
+
+    MemberDto create(MemberDto member);
 }

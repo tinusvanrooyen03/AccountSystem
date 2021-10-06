@@ -55,9 +55,9 @@ public class  MemberController {
     })
     public ResponseEntity<GeneralResponse<MemberDto>> create(
             @ApiParam(value = "Request body to create a new Member. ", required = true)
-            @RequestBody MemberDto memberDto) {
-        MemberDto memberDto1 = createMemberFlow.create(member);
-        GeneralResponse<MemberDto> response = new GeneralResponse<>(true, memberDto);
+            @RequestBody MemberDto member) {
+        MemberDto memberResponse = createMemberFlow.create(member);
+        GeneralResponse<MemberDto> response = new GeneralResponse<>(true, memberResponse);
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }

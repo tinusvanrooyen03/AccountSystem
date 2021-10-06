@@ -30,7 +30,7 @@ public class Member implements Serializable{
         this.totalMiles = totalMiles;
     }
 
-    public Member() {
+    public Member(String firstname, String lastname, long totalMiles) {
     }
 
     @Column(name = "MEMBERID")
