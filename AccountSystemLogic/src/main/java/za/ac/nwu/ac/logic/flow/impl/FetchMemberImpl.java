@@ -12,8 +12,6 @@ import java.util.List;
 
 @Transactional
 @Component
-
-
 public class FetchMemberImpl implements FetchMemberFlow {
     private final MemberTranslator memberTranslator;
 
