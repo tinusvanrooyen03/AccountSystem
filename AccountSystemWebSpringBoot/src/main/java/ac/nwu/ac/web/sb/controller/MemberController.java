@@ -62,5 +62,25 @@ public class  MemberController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    @GetMapping("{ID'S}")
+    @ApiOperation(value = "Gets all the last names of members", notes = "Returns a list of member last names")
+    @ApiResponses(value= {
+            @ApiResponse(code = 200, message = "Member ID's returned", response = GeneralResponse.class),
+            @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
+            @ApiResponse(code = 404, message = "Not Found", response = GeneralResponse.class),
+            @ApiResponse(code = 500, message = "Internal server error", response = GeneralResponse.class)})
+    public ResponseEntity<GeneralResponse<MemberDto>> getMember(
+            @ApiParam(value = "All of the members ID's",
+                    example = "3",
+                    name = "memberID",
+                    required = true)
+            @PathVariable("memberID") final Long memberID) {
+        MemberDto member = fetchMemberFlow.getMemberByID(memberID);
+
+        GeneralResponse<MemberDto> response = new GeneralResponse<>(true, member);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+
+    }
+
 
 }
