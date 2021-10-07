@@ -9,4 +9,10 @@ public interface MemberTranslator {
     List<MemberDto> getAllMembers();
 
     MemberDto create(MemberDto member);
+
+    MemberDto getMemberByNativeQuery(Long memberID);
+
+    MemberDto getMemberByIDNativeQuery(Long memberID);
+
+    MemberDto getMemberByID(Long memberID);
 }

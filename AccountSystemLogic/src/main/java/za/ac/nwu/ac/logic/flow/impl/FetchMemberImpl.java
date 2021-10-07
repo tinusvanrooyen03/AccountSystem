@@ -27,6 +27,6 @@ public class FetchMemberImpl implements FetchMemberFlow {
 
     @Override
     public MemberDto getMemberByID(Long memberID) {
-        return null;
+        return memberTranslator.getMemberByNativeQuery(memberID);
     }
 }

@@ -50,4 +50,30 @@ public class MemberTranslatorImpl implements MemberTranslator{
         }
     }
 
+    @Override
+    public MemberDto getMemberByNativeQuery(Long memberID) {
+        return null;
+    }
+
+    @Override
+    public MemberDto getMemberByIDNativeQuery(Long memberID){
+        try {
+            Member member = memberRepository.getMemberByIDNativeQuery(memberID);
+            return new MemberDto(member);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to read from DB", e);
+        }
+    }
+
+    @Override
+    public MemberDto getMemberByID(Long memberID){
+        try{
+            Member member = memberRepository.getMemberByID(memberID);
+            return new MemberDto(member);
+        }
+        catch(Exception e){
+            throw new RuntimeException("Unable to read from DB", e);
+        }
+    }
+
 }
