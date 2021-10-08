@@ -16,7 +16,7 @@ public interface  MemberRepository extends JpaRepository<Member, Long> {
             "       MemberLastName"+
             "       Total Miles"+
             "   FROM " +
-            "AYS_MEMBER" +
+            "ASYS_MEMBER" +
             "WHERE MemberID = :memberID ", nativeQuery = true)
     Member getMemberByIDNativeQuery(Long memberID);
 
@@ -27,6 +27,15 @@ public interface  MemberRepository extends JpaRepository<Member, Long> {
             "       Total Miles"+
             "WHERE MemberID = :memberID ", nativeQuery = true)
     Member getMemberByID(Long memberID);
+
+    @Query(value = "UPDATE" +
+        "           Total Miles"+
+        "           SET         "+
+        "           Total Miles = 40"+
+        "            FROM"+
+        "ASYS.MEMBER"+
+        "WHERE MemberID = :memberID", nativeQuery = true)
+     Member updateMemberMilesById(Long member);
 
 }
 

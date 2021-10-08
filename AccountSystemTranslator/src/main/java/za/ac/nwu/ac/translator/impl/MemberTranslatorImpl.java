@@ -76,4 +76,16 @@ public class MemberTranslatorImpl implements MemberTranslator{
         }
     }
 
+    @Override
+    public MemberDto updateMemberMilesById(Long memberID){
+        try {
+            Member member = memberRepository.updateMemberMilesById(memberID);
+            return new MemberDto(member);
+        }
+        catch (Exception e)
+        {
+            throw new RuntimeException("Unable tot read from DB", e);
+        }
+    }
+
 }

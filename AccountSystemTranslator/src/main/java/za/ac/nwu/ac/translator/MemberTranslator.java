@@ -15,4 +15,6 @@ public interface MemberTranslator {
     MemberDto getMemberByIDNativeQuery(Long memberID);
 
     MemberDto getMemberByID(Long memberID);
+
+    MemberDto updateMemberMilesById(Long memberID);
 }
