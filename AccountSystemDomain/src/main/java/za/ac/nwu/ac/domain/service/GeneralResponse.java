@@ -42,4 +42,9 @@ public class GeneralResponse<T> implements Serializable {
                 ", payload=" + payload +
                 '}';
     }
+
+
+    public boolean testEquals() {
+        return true;
+    }
 }
