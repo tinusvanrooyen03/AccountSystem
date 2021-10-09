@@ -6,6 +6,8 @@ import za.ac.nwu.ac.domain.persistence.Transaction;
 import za.ac.nwu.ac.repo.persistence.TransactionRepository;
 import za.ac.nwu.ac.translator.TransactionTranslator;
 
+import java.util.List;
+
 @Component
 public class TransactionTranslatorIMPL implements TransactionTranslator {
 
@@ -46,6 +48,11 @@ public class TransactionTranslatorIMPL implements TransactionTranslator {
         }catch (Exception e){
             throw new RuntimeException("Unable to save to db");
         }
+    }
+
+    @Override
+    public List<TransactionDto> getTansactions() {
+        return null;
     }
 
 }
