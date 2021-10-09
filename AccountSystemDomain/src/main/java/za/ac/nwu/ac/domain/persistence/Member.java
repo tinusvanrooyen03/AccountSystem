@@ -2,6 +2,7 @@ package za.ac.nwu.ac.domain.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ public class Member implements Serializable{
 
     private Set<Transaction> transactions;
 
-    public Member(long memberID, String FIRSTNAME, String LASTNAME, long totalMiles) {
+    public Member(Long memberID, String FIRSTNAME, String LASTNAME, int totalMiles) {
         this.memberID = memberID;
         this.FIRSTNAME = FIRSTNAME;
         this.LASTNAME = LASTNAME;

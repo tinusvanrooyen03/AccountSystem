@@ -2,6 +2,7 @@ package za.ac.nwu.ac.domain.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -24,17 +25,22 @@ public class Transaction implements Serializable {
     private int MilesSubtracted;
 
     @Column(name = "DATEOF")
-    private int DateOf;
+    private Date DateOf;
 
-    public Transaction(long transactionID, Member memberID, int milesAdded, int milesSubtracted, int dateOf) {
+    @Column(name = "MeilesType")
+    private String MilesType;
+
+
+    public Transaction(long transactionID, Member memberID, int milesAdded, int milesSubtracted, Date dateOf, String MilesType) {
         TransactionID = transactionID;
         MemberID = memberID;
         MilesAdded = milesAdded;
         MilesSubtracted = milesSubtracted;
         DateOf = dateOf;
+        MilesType = MilesType;
     }
 
-    public Transaction(){
+    public Transaction(String milesType, int milesAdded, int milesSubtracted, Date dateof){
 
     }
 
@@ -71,12 +77,20 @@ public class Transaction implements Serializable {
         MilesSubtracted = milesSubtracted;
     }
 
-    public int getDateOf() {
+    public Date getDateOf() {
         return DateOf;
     }
 
-    public void setDateOf(int dateOf) {
+    public void setDateOf(Date dateOf) {
         DateOf = dateOf;
+    }
+
+    public String getMilesType() {
+        return MilesType;
+    }
+
+    public void setMilesType(String milesType) {
+        MilesType = milesType;
     }
 
     @Override
@@ -84,22 +98,13 @@ public class Transaction implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transaction that = (Transaction) o;
-        return TransactionID == that.TransactionID && MemberID == that.MemberID && MilesAdded == that.MilesAdded && MilesSubtracted == that.MilesSubtracted && DateOf == that.DateOf;
+        return TransactionID == that.TransactionID && MilesAdded == that.MilesAdded && MilesSubtracted == that.MilesSubtracted && Objects.equals(MemberID, that.MemberID) && Objects.equals(DateOf, that.DateOf) && Objects.equals(MilesType, that.MilesType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(TransactionID, MemberID, MilesAdded, MilesSubtracted, DateOf);
+        return Objects.hash(TransactionID, MemberID, MilesAdded, MilesSubtracted, DateOf, MilesType);
     }
 
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "TransactionID=" + TransactionID +
-                ", MemberID=" + MemberID +
-                ", MilesAdded=" + MilesAdded +
-                ", MilesSubtracted=" + MilesSubtracted +
-                ", DateOf=" + DateOf +
-                '}';
-    }
+
 }

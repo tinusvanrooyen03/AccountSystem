@@ -63,7 +63,7 @@ public class  MemberController {
     }
 
     @GetMapping("{ID'S}")
-    @ApiOperation(value = "Gets all the last names of members", notes = "Returns a list of member last names")
+    @ApiOperation(value = "Gets all the ID'S of members", notes = "Returns a list of member last names")
     @ApiResponses(value= {
             @ApiResponse(code = 200, message = "Member ID's returned", response = GeneralResponse.class),
             @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
